@@ -1,0 +1,25 @@
+{
+  "name": "openai-bolierplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/digitaloffice2030/openai-bolierplate-js.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/digitaloffice2030/openai-bolierplate-js/issues"
+  },
+  "homepage": "https://github.com/digitaloffice2030/openai-bolierplate-js#readme",
+  "dependencies": {
+    "@azure/openai": "^1.0.0-beta.2",
+    "dotenv": "^16.1.4",
+    "readline-sync": "^1.4.10"
+  }
+}
