@@ -12,8 +12,8 @@ npm install
 
 Create a .env file and add the below environment variables
 
-AZURE_OPENAI_KEY="YOUR OPEN AI API KEY"
-AZURE_OPENAI_ENDPOINT="YOUR OPEN AI ENDPOINT"
+- AZURE_OPENAI_KEY="YOUR OPEN AI API KEY"
+- AZURE_OPENAI_ENDPOINT="YOUR OPEN AI ENDPOINT"
 
 ## run Chat Combletion
 
@@ -37,20 +37,26 @@ node ./src/TextEmbedding.js
 
 Create a .env file in the root of your project directory and define the following environment variables:
 
-AZURE_OPENAI_ENDPOINT: The endpoint URL for the OpenAI API.
-AZURE_OPENAI_KEY: The API key for accessing the OpenAI API.
-Example .env file:
+- AZURE_OPENAI_ENDPOINT: The endpoint URL for the OpenAI API.
+- AZURE_OPENAI_KEY: The API key for accessing the OpenAI API.
 
-### ./src/azureOpenAIClient
+### .env Example
+
+```js
+AZURE_OPENAI_KEY = "AZURE_OPENAI_KEY";
+AZURE_OPENAI_ENDPOINT = "AZURE_OPEN_AI_ENDPOINT";
+```
+
+## APIs
+
+1. ### ./src/azureOpenAIClient
 
 This module provides a client for accessing the OpenAI API using the configuration specified in the .env file. It also includes an enum for the model names used in the OpenAI API.
 
 1. Use the openAIClient instance to access the OpenAI API methods.
 2. Access the provided enum DEPLOYMENTS to get the names of the available models.
 
-## Examples
-
-### Create Completion
+#### Usage:
 
 ```js
 const { openAIClient, DEPLOYMENTS } = require("./azureOpenAIClient");
@@ -59,7 +65,24 @@ const createCompletion = async (history) => {
 };
 ```
 
+OR
+
 ```js
+const { openAIClient, DEPLOYMENTS } = require("./azureOpenAIClient");
+const createEmbeddings = async (input) => {
+  return openAIClient.getEmbeddings(DEPLOYMENTS.EMBEDDING, input);
+};
+```
+
+## Examples
+
+### 1. Create Completion
+
+```js
+const { openAIClient, DEPLOYMENTS } = require("./azureOpenAIClient");
+const createCompletion = async (history) => {
+  return openAIClient.getChatCompletions(DEPLOYMENTS.COMPLETION, history);
+};
 async function main() {
   // Create a chat history
   const history = [
@@ -98,18 +121,13 @@ main().catch((err) => {
 
 > You can find a complete code snippet in the ./src/ChatCompletion.js module.
 
-### Create Embeddings
+### 2. Create Embeddings
 
 ```js
 const { openAIClient, DEPLOYMENTS } = require("./azureOpenAIClient");
 const createEmbeddings = async (input) => {
   return openAIClient.getEmbeddings(DEPLOYMENTS.EMBEDDING, input);
 };
-```
-
-usage
-
-```js
 const main = async () => {
   return createEmbeddings(`
   1. Encapsulation: It refers to the concept of data hiding that restricts data access and manipulation to within the object. This ensures that data is accessed and modified only by authorized operations.
@@ -129,8 +147,10 @@ main()
 
 > You can find a complete code snippet in the ./src/TextEmbedding.js module.
 
-For an interactive chatbot sample programm please refer to the CompletionChatBot.js module.
-Run the below command to test the chatbot.
+### ChatBot App
+
+For an interactive chatbot working application please refer to the CompletionChatBot.js module.
+Run the below command to try the chatbot.
 
 ```sh
 node ./src/CompletionChatBot.js

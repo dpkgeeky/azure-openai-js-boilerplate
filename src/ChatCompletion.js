@@ -1,9 +1,11 @@
 const { openAIClient, DEPLOYMENTS } = require("./azureOpenAIClient");
 
+// Import this function and use it as shown below
 const createCompletion = async (history) => {
   return openAIClient.getChatCompletions(DEPLOYMENTS.COMPLETION, history);
 };
 
+// Usage Example
 async function main() {
   // Create a chat history
   const history = [

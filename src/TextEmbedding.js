@@ -1,9 +1,11 @@
 const { openAIClient, DEPLOYMENTS } = require("./azureOpenAIClient");
 
+// Import this function and use it as shown below
 const createEmbeddings = async (input) => {
   return openAIClient.getEmbeddings(DEPLOYMENTS.EMBEDDING, input);
 };
 
+// Usage Example
 const main = async () => {
   return createEmbeddings(`
   1. Encapsulation: It refers to the concept of data hiding that restricts data access and manipulation to within the object. This ensures that data is accessed and modified only by authorized operations.

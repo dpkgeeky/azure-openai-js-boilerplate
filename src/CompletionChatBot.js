@@ -1,8 +1,5 @@
 const readlineSync = require("readline-sync");
-const {
-  openAiClient: openAiClient,
-  DEPLOYMENTS,
-} = require("./azureOpenAIClient");
+const { openAiClient, DEPLOYMENTS } = require("./azureOpenAIClient");
 
 // Start the chat
 (async () => {
@@ -18,7 +15,7 @@ const {
   console.log(
     "Note: To exit the chat, you can type 'q', 'exit', or 'quit' at any time and the program will stop running."
   );
-  // .
+  // Keep it running ..
   while (true) {
     const userInput = readlineSync.question("Your input: ");
     // Check if the user want to terminate the session
@@ -47,20 +44,8 @@ const {
           content: choice.message.content,
         });
       }
-      // Add the response to the chat history
-
-      // // Terminate the session if needed
-      // const userInput_again = readlineSync.question(
-      //   "\nWould you like to continue the conversation? (Y/N)"
-      // );
-      // if (userInput_again.toUpperCase() === "N") {
-      //   return;
-      // } else if (userInput_again.toUpperCase() !== "Y") {
-      //   console.log(
-      //     "Invalid input. Please enter 'exit' or 'q' or 'quit' to exit."
-      //   );
-      // }
     } catch (error) {
+      // Handle Errors
       if (error.response) {
         console.log(error.response.status);
         console.log(error.response.data);
