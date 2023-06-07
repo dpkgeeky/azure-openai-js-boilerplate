@@ -49,7 +49,8 @@ AZURE_OPENAI_ENDPOINT = "AZURE_OPEN_AI_ENDPOINT";
 
 ## APIs
 
-1. ### ./src/azureOpenAIClient
+1. ### azureOpenAIClient
+   > ./src/azureOpenAIClient
 
 This module provides a client for accessing the OpenAI API using the configuration specified in the .env file. It also includes an enum for the model names used in the OpenAI API.
 
