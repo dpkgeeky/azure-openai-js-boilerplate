@@ -4,7 +4,7 @@ const endpoint = process.env["AZURE_OPENAI_ENDPOINT"];
 const azureApiKey = process.env["AZURE_OPENAI_KEY"];
 const DEPLOYMENTS = {
   COMPLETION: "gpt-35-turbo-base",
-  EMBEDDING: "ada-embedding-v2",
+  EMBEDDING: "text-embedding-ada-002",
 };
 
 // Create an instance of the OpenAIClient
