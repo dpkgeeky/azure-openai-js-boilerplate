@@ -1,5 +1,5 @@
 const readlineSync = require("readline-sync");
-const { openAiClient, DEPLOYMENTS } = require("./azureOpenAIClient");
+const { openAIClient, DEPLOYMENTS } = require("./azureOpenAIClient");
 
 // Start the chat
 (async () => {
@@ -32,7 +32,7 @@ const { openAiClient, DEPLOYMENTS } = require("./azureOpenAIClient");
 
     // Send API to the model to get the response
     try {
-      const completion = await openAiClient.getChatCompletions(
+      const completion = await openAIClient.getChatCompletions(
         DEPLOYMENTS.COMPLETION,
         messages
       );
